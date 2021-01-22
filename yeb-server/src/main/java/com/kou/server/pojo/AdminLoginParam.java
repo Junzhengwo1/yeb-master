@@ -9,11 +9,11 @@ import lombok.experimental.Accessors;
 /**
  * @author JIAJUN KOU
  *
- * 用户登录实体类
+ * 用户登录 专门用于登录的实体类
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = false)//不重写equals和HashCode
+@Accessors(chain = true)//get//set方法
 @ApiModel(value = "AdminLogin对象",description = "")
 public class AdminLoginParam {
 
