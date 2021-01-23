@@ -1,7 +1,8 @@
 package com.kou.server.mapper;
 
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kou.pojo.Salary;
+import com.kou.server.pojo.Salary;
 
 /**
  * <p>

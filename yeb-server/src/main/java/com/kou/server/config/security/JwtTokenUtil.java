@@ -21,7 +21,7 @@ public class JwtTokenUtil {
     private static final String CLAIM_KEY_USERNAME="sub";
     private static final String CLAIM_KEY_CREATED="created";
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.secret}")//这是从配置文件中获取值的方法
     private String secret;
     @Value("${jwt.expiration}")
     private Long expiration;
@@ -136,7 +136,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())
-                .signWith(SignatureAlgorithm.ES512,secret)
+                .signWith(SignatureAlgorithm.HS512,secret)
                 .compact();
     }
 

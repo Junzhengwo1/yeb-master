@@ -1,7 +1,8 @@
 package com.kou.server.mapper;
 
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kou.pojo.EmployeeTrain;
+import com.kou.server.pojo.EmployeeTrain;
 
 /**
  * <p>

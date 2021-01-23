@@ -1,11 +1,13 @@
 server:
   port: 8081
+
+
 spring:
   datasource:
     username: root
     password: 123456
     url: jdbc:mysql://127.0.0.1:3306/yeb?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     hikari:
       pool-name: DateHikariCP
@@ -16,8 +18,12 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+#  security:
+#    user:
+#      name: admin
+#      password: 123456
 mybatis-plus:
-  config-location: classpath*:/mapper/*Mapper.xml
+  mapper-locations: classpath*:/mapper/*Mapper.xml
   type-aliases-package: com.kou.server.pojo
   configuration:
     map-underscore-to-camel-case: false

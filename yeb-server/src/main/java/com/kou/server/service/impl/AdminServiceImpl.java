@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     //这个对象是Security框架里面的
     @Autowired
     private UserDetailsService userDetailsService;
-    @Autowired
+    @Autowired(required=false)
     private PasswordEncoder passwordEncoder;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
@@ -40,9 +41,17 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
 
     @Override
-    public RespBean login(String username, String password, HttpServletRequest request) {
+    public RespBean login(String username, String password, String code, HttpServletRequest request) {
 
+        //获取session中我们之前保存的验证码
+        String captcha = (String)request.getSession().getAttribute("captcha");
+        //开始判断验证码
+        if(StringUtils.isEmpty(code)||!captcha.equalsIgnoreCase(code)){
+            return RespBean.error("验证码错误，请重新输入");
 
+        }
+
+        //登录
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         if(userDetails==null||!passwordEncoder.matches(password,userDetails.getPassword())){
             return RespBean.error("用户或密码不正确");

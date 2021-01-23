@@ -12,6 +12,7 @@ import com.kou.server.pojo.Admin;
  * @author koujiajun
  * @since 2021-01-21
  */
+
 public interface AdminMapper extends BaseMapper<Admin> {
 
 }
