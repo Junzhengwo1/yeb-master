@@ -2,7 +2,7 @@ package com.kou.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.kou.server.config.security.JwtTokenUtil;
+import com.kou.server.config.jwt.JwtTokenUtil;
 import com.kou.server.mapper.AdminMapper;
 import com.kou.server.pojo.Admin;
 import com.kou.server.pojo.RespBean;
@@ -45,6 +45,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         //获取session中我们之前保存的验证码
         String captcha = (String)request.getSession().getAttribute("captcha");
+        System.out.println("验证的验证码"+captcha);
         //开始判断验证码
         if(StringUtils.isEmpty(code)||!captcha.equalsIgnoreCase(code)){
             return RespBean.error("验证码错误，请重新输入");

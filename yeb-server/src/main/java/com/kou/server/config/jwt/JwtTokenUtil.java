@@ -1,4 +1,4 @@
-package com.kou.server.config.security;
+package com.kou.server.config.jwt;
 
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;

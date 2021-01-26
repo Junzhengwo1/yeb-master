@@ -1,4 +1,4 @@
-package com.kou.server.config.security;
+package com.kou.server.config.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kou.server.pojo.RespBean;
@@ -27,7 +27,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        RespBean error = RespBean.error("权限不足，联系管理员");
+        RespBean error = RespBean.error("RestfulAccessDeniedHandler+权限不足，联系管理员");
         error.setCode(403);
         out.write(new ObjectMapper().writeValueAsString(error));
         out.flush();

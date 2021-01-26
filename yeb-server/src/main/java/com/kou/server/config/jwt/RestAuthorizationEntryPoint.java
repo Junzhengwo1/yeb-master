@@ -1,4 +1,4 @@
-package com.kou.server.config.security;
+package com.kou.server.config.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kou.server.pojo.RespBean;
@@ -23,7 +23,7 @@ public class RestAuthorizationEntryPoint implements AuthenticationEntryPoint {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        RespBean error = RespBean.error("未登录，请登录");
+        RespBean error = RespBean.error("RestAuthorizationEntryPoint +未登录，请登录");
         error.setCode(401);
         out.write(new ObjectMapper().writeValueAsString(error));
         out.flush();
