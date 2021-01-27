@@ -4,6 +4,7 @@ package com.kou.server.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kou.server.pojo.Admin;
 
+
 /**
  * <p>
  *  Mapper 接口
@@ -14,5 +15,7 @@ import com.kou.server.pojo.Admin;
  */
 
 public interface AdminMapper extends BaseMapper<Admin> {
+
+
 
 }

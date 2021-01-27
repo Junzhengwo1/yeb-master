@@ -1,7 +1,5 @@
 server:
   port: 8081
-
-
 spring:
   datasource:
     username: root
@@ -18,6 +16,19 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+
+  redis:
+    timeout: 10000ms
+    host: 127.0.0.1
+    port: 6379
+    database: 0 # 选择哪个库，默认0库
+    lettuce:
+      pool:
+        max-active: 1024 # 最大连接数，默认 8
+        max-wait: 10000ms # 最大连接阻塞等待时间，单位毫秒，默认 -1
+        max-idle: 200 # 最大空闲连接，默认 8
+        min-idle: 5
+
 #  security:
 #    user:
 #      name: admin

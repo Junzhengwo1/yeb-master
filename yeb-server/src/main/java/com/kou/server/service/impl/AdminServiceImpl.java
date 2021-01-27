@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kou.server.config.jwt.JwtTokenUtil;
 import com.kou.server.mapper.AdminMapper;
 import com.kou.server.pojo.Admin;
+import com.kou.server.pojo.Menu;
 import com.kou.server.pojo.RespBean;
 import com.kou.server.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -65,13 +67,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
                 new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
-
         //生成的token
         String token = jwtTokenUtil.generateToken(userDetails);
         Map<String,String> tokenMap=new HashMap<>();
         tokenMap.put("token",token);
         tokenMap.put("tokenHead",tokenHead);
-
         return RespBean.success("登录成功",tokenMap);
     }
 
@@ -81,6 +81,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
                 .eq("enabled", true));
         return admin;
     }
+
+
 
 
 }
