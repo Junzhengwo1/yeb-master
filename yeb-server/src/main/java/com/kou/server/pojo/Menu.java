@@ -66,4 +66,9 @@ public class Menu implements Serializable {
     @TableField(exist = false)//表示表字段中没有这个字段
     private List<Menu> children;
 
+    //这里我们要添加一个属性 角色列表
+    @ApiModelProperty(value = "角色列表")
+    @TableField(exist = false)
+    private List<Role> roles;
+
 }

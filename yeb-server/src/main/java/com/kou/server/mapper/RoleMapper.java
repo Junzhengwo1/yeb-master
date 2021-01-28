@@ -2,8 +2,10 @@ package com.kou.server.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.kou.server.pojo.Role;
 
-import javax.management.relation.Role;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +16,12 @@ import javax.management.relation.Role;
  * @since 2021-01-21
  */
 public interface RoleMapper extends BaseMapper<Role> {
+
+    /**
+     * 根据用户id查询角色列表
+     * @param adminId
+     * @return
+     */
+    List<Role> getRoles(Integer adminId);
 
 }

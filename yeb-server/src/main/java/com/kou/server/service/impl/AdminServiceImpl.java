@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kou.server.config.jwt.JwtTokenUtil;
 import com.kou.server.mapper.AdminMapper;
+import com.kou.server.mapper.RoleMapper;
 import com.kou.server.pojo.Admin;
 import com.kou.server.pojo.Menu;
 import com.kou.server.pojo.RespBean;
+import com.kou.server.pojo.Role;
 import com.kou.server.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,6 +42,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     private String tokenHead;
     @Autowired
     private AdminMapper adminMapper;
+    @Autowired
+    private RoleMapper roleMapper;
+
 
 
     @Override
@@ -82,7 +87,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return admin;
     }
 
-
+    @Override
+    public List<Role> getRoles(Integer adminId) {
+        return roleMapper.getRoles(adminId);
+    }
 
 
 }
