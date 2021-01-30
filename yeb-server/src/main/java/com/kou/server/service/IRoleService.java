@@ -2,8 +2,8 @@ package com.kou.server.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.kou.server.pojo.Role;
 
-import javax.management.relation.Role;
 
 /**
  * <p>

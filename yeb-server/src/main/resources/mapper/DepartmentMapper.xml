@@ -17,4 +17,20 @@
         id, name, parentId, depPath, enabled, isParent
     </sql>
 
+
+    <resultMap id="DepartmentWithChildren" type="com.kou.server.pojo.Department" extends="BaseResultMap">
+        <collection property="children" ofType="com.kou.server.pojo.Department"
+                    select="com.kou.server.mapper.DepartmentMapper.getAllDepartments"
+                    column="id">
+        </collection>
+
+    </resultMap>
+    <!--获取所有部门-->
+    <select id="getAllDepartments" resultMap="DepartmentWithChildren">
+        select 
+        <include refid="Base_Column_List"></include>
+        from t_department
+        where parentId = #{parentId}
+    </select>
+
 </mapper>

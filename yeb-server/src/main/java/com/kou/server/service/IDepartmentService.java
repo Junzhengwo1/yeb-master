@@ -4,6 +4,8 @@ package com.kou.server.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kou.server.pojo.Department;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -14,4 +16,9 @@ import com.kou.server.pojo.Department;
  */
 public interface IDepartmentService extends IService<Department> {
 
+    /**
+     * 获取所有部门列表
+     * @return
+     */
+    List<Department> getAllDepartments();
 }
