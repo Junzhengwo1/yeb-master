@@ -93,4 +93,19 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     }
 
 
+    /**
+     * 获取所有操作员
+     * @param keyWord
+     * @return
+     */
+    @Override
+    public List<Admin> getAllAdmins(String keyWord) {
+        //这里我们在查询操作员的时候，要排除已经登录的
+        //当前登录的id
+        Admin admin =(Admin) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Integer id = admin.getId();
+        return adminMapper.getAllAdmins(id,keyWord);
+    }
+
+
 }

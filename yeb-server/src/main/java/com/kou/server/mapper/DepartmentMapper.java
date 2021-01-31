@@ -16,5 +16,22 @@ import java.util.List;
  */
 public interface DepartmentMapper extends BaseMapper<Department> {
 
+    /**
+     * 获取所有部门
+     * @param parentId
+     * @return
+     */
     List<Department> getAllDepartments(Integer parentId);
+
+    /**
+     * 添加部门
+     * @param dep
+     */
+    void addDep(Department dep);
+
+    /**
+     * 删除部门
+     * @param dep
+     */
+    void deleteDep(Department dep);
 }

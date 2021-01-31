@@ -33,4 +33,16 @@
         where parentId = #{parentId}
     </select>
 
+    <!--添加所有部门;这个地方是调用存储过程的，所以要使用select-->
+    <select id="addDep" statementType="CALLABLE">
+        call addDep(#{name,mode=IN, jdbcType=VARCHAR},#{parentId,mode=IN,jdbcType=INTEGER},#{enabled,mode=IN,jdbcType=BOOLEAN}
+        ,#{result,mode=OUT,jdbcType=INTEGER},#{id,mode=OUT,jdbcType=INTEGER})
+    </select>
+
+    <!--删除部门；依然是调用存储过程 使用select-->
+    <select id="deleteDep" statementType="CALLABLE">
+        call deleteDep(#{id,mode=IN,jdbcType=INTEGER},#{result,mode=OUT,jdbcType=INTEGER})
+
+    </select>
+
 </mapper>
