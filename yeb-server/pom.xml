@@ -95,6 +95,11 @@
             <artifactId>easypoi-spring-boot-starter</artifactId>
             <version>4.2.0</version>
         </dependency>
+        <!--rabbitmq 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
 
     </dependencies>
 
