@@ -143,5 +143,7 @@
     <orderEntry type="library" name="Maven: ognl:ognl:3.2.6" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: cn.afterturn:easypoi-annotation:4.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-websocket:2.3.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-websocket:5.2.6.RELEASE" level="project" />
   </component>
 </module>

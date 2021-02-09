@@ -71,6 +71,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             Employee emp = employeeMapper.getEmployeeToExcel(employee.getId()).get(0);
             //在发送邮件时；先消息落库
             String msgId = UUID.randomUUID().toString();
+            //String msgId="123456";
             MailLog mailLog=new MailLog();
             mailLog.setMsgId(msgId);
             mailLog.setEid(employee.getId());
@@ -94,5 +95,14 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     @Override
     public List<Employee> getEmployeeToExcel(Integer id) {
         return employeeMapper.getEmployeeToExcel(id);
+    }
+
+    @Override
+    public RespPageBean getEmployeeWithSalary(Integer currentPage, Integer size) {
+        //开启分页
+        Page<Employee> page=new Page<>(currentPage,size);
+        IPage<Employee> employeeIPage= employeeMapper.getEmployeeWithSalary(page);
+        RespPageBean respPageBean = new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
+        return respPageBean;
     }
 }

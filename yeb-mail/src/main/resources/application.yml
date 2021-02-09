@@ -16,6 +16,7 @@ spring:
     port: 5672
     listener:
       simple:
+        #开启rabbitMQ的手动确认
         acknowledge-mode: manual
   redis:
     timeout: 10000ms
