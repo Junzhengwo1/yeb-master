@@ -21,7 +21,7 @@ import java.io.IOException;
  * jwt登录授权过滤器
  */
 
-public class JwtAuthencationTokenFilter extends OncePerRequestFilter {
+public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;

@@ -2,7 +2,7 @@ package com.kou.server.config.security;
 
 import com.kou.server.config.filter.CustomFilter;
 import com.kou.server.config.filter.CustomUrlDecisionManager;
-import com.kou.server.config.jwt.JwtAuthencationTokenFilter;
+import com.kou.server.config.jwt.JwtAuthenticationTokenFilter;
 import com.kou.server.config.jwt.RestAuthorizationEntryPoint;
 import com.kou.server.config.jwt.RestfulAccessDeniedHandler;
 import com.kou.server.pojo.Admin;
@@ -97,7 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cacheControl();
 
         //添加jwt，登录授权拦截器
-        http.addFilterBefore(jwtAuthencationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         //添加自定义未授权未登录结果返回
         http.exceptionHandling()
@@ -126,7 +126,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public JwtAuthencationTokenFilter jwtAuthencationTokenFilter(){
-        return new JwtAuthencationTokenFilter();
+    public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter(){
+        return new JwtAuthenticationTokenFilter();
     }
 }
