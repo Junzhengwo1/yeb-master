@@ -65,7 +65,7 @@ public class MailReceiver {
             //收件人
             helper.setTo(employee.getEmail());
             //邮件主题
-            helper.setSubject("入职欢迎邮件");
+            helper.setSubject("员工入职邮件");
             //日期
             helper.setSentDate(new Date());
             //邮件内容
