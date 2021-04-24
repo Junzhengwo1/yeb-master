@@ -83,10 +83,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             mailLog.setCreateTime(LocalDateTime.now());
             mailLog.setUpdateTime(LocalDateTime.now());
             mailLogMapper.insert(mailLog);
-
             //发送信息
             rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME,MailConstants.MAIL_ROUTING_KEY_NAME,emp,new CorrelationData(msgId));
-
             return RespBean.success("添加成功");
         }
         return RespBean.error("添加失败");

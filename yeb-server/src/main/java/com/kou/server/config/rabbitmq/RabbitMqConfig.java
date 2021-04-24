@@ -43,7 +43,6 @@ public class RabbitMqConfig {
                 LOGGER.error("消息发送失败",msgId);
             }
         });
-
         rabbitTemplate.setReturnCallback((msg, repCode, repText, exchange, routingkey) -> {
                 LOGGER.error("消息发送到队列失败",msg.getBody());
         });

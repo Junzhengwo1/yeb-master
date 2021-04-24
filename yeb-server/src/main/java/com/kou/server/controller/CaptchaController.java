@@ -21,10 +21,8 @@ import java.io.IOException;
  */
 @RestController
 public class CaptchaController {
-
     @Autowired
     private DefaultKaptcha defaultKaptcha;
-
     @ApiOperation(value = "验证码")
     @GetMapping(value = "/captcha",produces = "image/jpeg")
     public void captcha(HttpServletRequest request, HttpServletResponse response){
@@ -35,7 +33,6 @@ public class CaptchaController {
         response.setHeader("Pragma", "no-cache");
         response.setContentType("image/jpeg");
         //---------------------------生成验证码begin----------------------
-
         //这是google的Captcha中默认的生成的验证码文本内容
         String text = defaultKaptcha.createText();
         System.out.println("验证码内容:"+text);
@@ -59,13 +56,7 @@ public class CaptchaController {
                     e.printStackTrace();
                 }
             }
-
         }
-
         //---------------------------生成验证码end----------------------
-
     }
-
-
-
 }

@@ -14,7 +14,6 @@ import java.util.Properties;
  */
 @Configuration
 public class CaptchaConfig {
-
     @Bean
     public DefaultKaptcha defaultKaptcha(){
         //验证码生成器
@@ -49,5 +48,4 @@ public class CaptchaConfig {
         defaultKaptcha.setConfig(config);
         return defaultKaptcha;
     }
-
 }

@@ -89,7 +89,7 @@ public class EmployeeController {
     }
 
     @ApiOperation(value = "获取最大工号")
-    @GetMapping("/maxWorkId")
+    @GetMapping("/maxWorkID")
     public RespBean maxWorkID(){
         return employeeService.maxWorkID();
     }
@@ -144,7 +144,6 @@ public class EmployeeController {
                 }
             }
         }
-
     }
 
     @ApiOperation(value = "导入员工数据")
