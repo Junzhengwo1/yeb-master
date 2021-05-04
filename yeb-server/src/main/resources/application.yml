@@ -4,7 +4,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/yeb?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/yebk?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     hikari:
@@ -30,7 +30,7 @@ spring:
     timeout: 10000ms
     host: 127.0.0.1
     port: 6379
-    database: 0 # 选择哪个库，默认0库
+    database: 1 # 选择哪个库，默认0库
     lettuce:
       pool:
         max-active: 1024 # 最大连接数，默认 8
